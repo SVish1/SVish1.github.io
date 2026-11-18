@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shamita Nalamutt · Robotics & Automation Engineer</title>
+<meta name="description" content="Portfolio of Shamita Nalamutt: robotics & automation engineer working with ROS2, C++, Python and robot learning." />
+<style>
+  :root {
+    --bg: #0d1117; --bg2: #121a27; --card: #161f2e; --line: #243247;
+    --text: #e6edf3; --muted: #8b949e; --accent: #36bcf7; --accent2: #7ee0c3;
+    --radius: 16px; --max: 1080px;
+    --font: "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    --mono: "Fira Code", ui-monospace, "Cascadia Code", Consolas, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--font); line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+
+  /* nav */
+  nav { position: sticky; top: 0; z-index: 10; background: rgba(13,17,23,.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .logo { font-family: var(--mono); font-weight: 600; color: var(--text); }
+  nav .logo span { color: var(--accent); }
+  nav ul { display: flex; gap: 24px; list-style: none; }
+  nav ul a { color: var(--muted); font-size: 15px; }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  /* hero */
+  header.hero { padding: 96px 0 72px; background: radial-gradient(circle at 85% 10%, rgba(54,188,247,.12), transparent 45%), linear-gradient(160deg, var(--bg), #16243a); border-bottom: 1px solid var(--line); }
+  .eyebrow { font-family: var(--mono); color: var(--accent2); font-size: 15px; margin-bottom: 12px; }
+  .hero h1 { font-size: clamp(36px, 6vw, 60px); line-height: 1.1; letter-spacing: -1px; }
+  .hero h2 { font-size: clamp(20px, 3vw, 28px); color: var(--accent); font-weight: 500; margin-top: 10px; }
+  .hero p.lead { color: var(--muted); max-width: 640px; margin-top: 20px; font-size: 18px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 10px; font-weight: 600; font-size: 15px; border: 1px solid var(--line); color: var(--text); background: var(--card); }
+  .btn:hover { border-color: var(--accent); text-decoration: none; }
+  .btn.primary { background: var(--accent); color: #04121c; border-color: var(--accent); }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 48px; max-width: 760px; }
+  .stat { background: rgba(255,255,255,.04); border: 1px solid rgba(54,188,247,.3); border-radius: 14px; padding: 16px; text-align: center; }
+  .stat b { display: block; font-size: 28px; }
+  .stat span { color: var(--muted); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; }
+
+  /* sections */
+  section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+  section h3 { font-size: 30px; margin-bottom: 8px; }
+  section h3::before { content: "// "; font-family: var(--mono); color: var(--accent); font-size: 22px; }
+  .sub { color: var(--muted); margin-bottom: 36px; }
+  .about-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; }
+  .about-grid p { color: #c9d1d9; margin-bottom: 14px; }
+  .facts { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; list-style: none; }
+  .facts li { padding: 8px 0; border-bottom: 1px dashed var(--line); color: #c9d1d9; }
+  .facts li:last-child { border: 0; }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+  .skill-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .skill-card h4 { margin-bottom: 12px; font-size: 17px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+  .tag { font-family: var(--mono); font-size: 13px; padding: 4px 10px; border-radius: 999px; background: rgba(54,188,247,.1); color: var(--accent); border: 1px solid rgba(54,188,247,.25); }
+
+  /* projects */
+  .projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+  .project { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; transition: transform .15s, border-color .15s; }
+  .project:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .project img { width: 100%; aspect-ratio: 2 / 1; object-fit: cover; background: var(--bg2); border-bottom: 1px solid var(--line); }
+  .project .body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+  .project h4 { font-size: 18px; margin-bottom: 6px; word-break: break-word; }
+  .project .pin { font-size: 12px; color: var(--accent2); font-family: var(--mono); margin-bottom: 6px; }
+  .project p { color: var(--muted); font-size: 15px; flex: 1; }
+  .project .meta { display: flex; gap: 14px; align-items: center; margin-top: 16px; font-size: 14px; color: var(--muted); flex-wrap: wrap; }
+  .project .meta a { margin-left: auto; font-weight: 600; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 6px; background: var(--accent); }
+  .note { color: var(--muted); font-size: 14px; margin-top: 18px; }
+
+  /* timeline */
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: 6px; bottom: 6px; width: 2px; background: var(--line); }
+  .item { position: relative; margin-bottom: 32px; }
+  .item::before { content: ""; position: absolute; left: -28px; top: 6px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+  .item .when { font-family: var(--mono); font-size: 13px; color: var(--accent2); }
+  .item h4 { font-size: 18px; margin: 2px 0; }
+  .item .where { color: var(--muted); margin-bottom: 6px; }
+  .item ul { padding-left: 18px; color: #c9d1d9; }
+
+  /* contact */
+  .contact { text-align: center; }
+  .contact .btns { justify-content: center; }
+  footer { padding: 28px 0; text-align: center; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 760px) {
+    nav ul { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">shamita<span>.dev</span></a>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="eyebrow">Hi, I'm</div>
+    <h1 id="name"></h1>
+    <h2 id="role"></h2>
+    <p class="lead" id="lead"></p>
+    <div class="btns" id="hero-btns"></div>
+    <div class="stats">
+      <div class="stat"><b id="s-repos">–</b><span>Repositories</span></div>
+      <div class="stat"><b id="s-stars">–</b><span>Stars</span></div>
+      <div class="stat"><b id="s-langs">–</b><span>Languages</span></div>
+      <div class="stat"><b id="s-followers">–</b><span>Followers</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h3>About me</h3>
+    <p class="sub">Robotics engineer with an industry software background.</p>
+    <div class="about-grid">
+      <div id="about-text"></div>
+      <ul class="facts" id="facts"></ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h3>Skills</h3>
+    <p class="sub">Tools and technologies I work with.</p>
+    <div class="skills" id="skills-grid"></div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <h3>Projects</h3>
+    <p class="sub">Loaded live from GitHub. New repositories appear here automatically.</p>
+    <div class="projects" id="project-grid"></div>
+    <p class="note" id="project-note"></p>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h3>Experience & education</h3>
+    <p class="sub">&nbsp;</p>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h3>Let's connect</h3>
+    <p class="sub" id="contact-text"></p>
+    <div class="btns" id="contact-btns"></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> <span id="footer-name"></span> · Built with plain HTML, hosted on GitHub Pages</div>
+</footer>
+
+<script>
+/* =====================================================================
+   EDIT EVERYTHING HERE. The rest of the page is built from this object.
+   ===================================================================== */
+const CONFIG = {
+  github: "SVish1",
+  name: "Shamita Nalamutt",
+  role: "Robotics & Automation Engineer",
+  lead: "I build software for robots, from C++ firmware for CNC controllers to ROS2 systems and learned manipulation policies.",
+  linkedin: "",          // e.g. "https://www.linkedin.com/in/your-name/"
+  email: "",             // e.g. "you@example.com"
+  cv: "",                // e.g. "cv.pdf" (upload the PDF to this repo)
+
+  about: [
+    "I'm a master's student in Robotics & Automation at TU Dortmund, with a B.Tech in Mechatronics.",
+    "Before my master's, I worked as a software engineer at a CNC controls company, developing C++ firmware and test frameworks for industrial machines. That's where I learned to write software that has to work reliably on real hardware.",
+    "Today I focus on robot learning, autonomous systems and validation: making robots that learn from demonstrations and software you can trust in the field.",
+  ],
+  facts: [
+    "📍 Dortmund, Germany",
+    "🎓 M.Sc. Robotics & Automation, TU Dortmund",
+    "🛠️ B.Tech Mechatronics",
+    "🗣️ English · German (B2)",
+    "💼 Open to Werkstudent, thesis & full-time roles",
+  ],
+
+  skills: {
+    "Robotics": ["ROS / ROS2", "MuJoCo", "Sensor fusion", "Autonomous systems", "Motion control"],
+    "Programming": ["C++", "Python", "Bash", "RTOS"],
+    "Machine learning": ["PyTorch", "Behavior cloning", "NumPy", "pandas"],
+    "Automation & tools": ["Siemens TIA Portal", "PLC", "SolidWorks", "Docker", "Git", "Linux"],
+  },
+
+  // Repos shown first, in this order. Everything else follows, newest first.
+  pinned: ["bc-manipulation", "ros2-mobile-robot-health-monitor"],
+  // Repos never shown (your profile repo, this website, etc.)
+  exclude: ["SVish1", "SVish1.github.io", "Shamita-Nalamutt"],
+  // Optional nicer descriptions that override the GitHub one
+  descriptions: {
+    "bc-manipulation": "Behavior cloning for robotic manipulation in MuJoCo, comparing policies trained on clean vs. noisy expert demonstrations.",
+  },
+
+  timeline: [
+    { when: "20XX – present", title: "M.Sc. Robotics & Automation", where: "TU Dortmund",
+      points: ["Focus: robot learning, autonomous systems, automation"] },
+    { when: "20XX – 20XX", title: "Software Engineer", where: "CNC controls company",
+      points: ["Developed C++ firmware for CNC control systems", "Built and maintained automated test frameworks"] },
+    { when: "20XX – 20XX", title: "B.Tech Mechatronics", where: "University name",
+      points: [] },
+  ],
+};
+/* ===================================================================== */
+
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const LANG_COLORS = { Python: "#3572A5", "C++": "#f34b7d", C: "#555555", Shell: "#89e051", CMake: "#DA3434",
+  "Jupyter Notebook": "#DA5B0B", JavaScript: "#f1e05a", TypeScript: "#3178c6", HTML: "#e34c26", MATLAB: "#e16737", Dockerfile: "#384d54" };
+
+function links() {
+  const out = [{ label: "GitHub", href: `https://github.com/${CONFIG.github}` }];
+  if (CONFIG.linkedin) out.push({ label: "LinkedIn", href: CONFIG.linkedin });
+  if (CONFIG.email) out.push({ label: "Email", href: `mailto:${CONFIG.email}` });
+  if (CONFIG.cv) out.push({ label: "Download CV", href: CONFIG.cv, primary: true });
+  return out;
+}
+
+function renderStatic() {
+  document.title = `${CONFIG.name} · ${CONFIG.role}`;
+  $("name").textContent = CONFIG.name;
+  $("role").textContent = CONFIG.role;
+  $("lead").textContent = CONFIG.lead;
+  $("footer-name").textContent = CONFIG.name;
+  $("year").textContent = new Date().getFullYear();
+
+  const btns = links().map((l, i) =>
+    `<a class="btn ${l.primary || (!CONFIG.cv && i === 0) ? "primary" : ""}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}</a>`).join("");
+  $("hero-btns").innerHTML = `<a class="btn primary" href="#projects">View projects</a>` + btns.replace(/ primary/g, "");
+  $("contact-btns").innerHTML = btns;
+  $("contact-text").textContent = "I'm open to Werkstudent positions, Master's thesis projects and full-time roles in robotics and automation.";
+
+  $("about-text").innerHTML = CONFIG.about.map((p) => `<p>${esc(p)}</p>`).join("");
+  $("facts").innerHTML = CONFIG.facts.map((f) => `<li>${esc(f)}</li>`).join("");
+  $("skills-grid").innerHTML = Object.entries(CONFIG.skills).map(([group, items]) =>
+    `<div class="skill-card"><h4>${esc(group)}</h4><div class="tags">${items.map((s) => `<span class="tag">${esc(s)}</span>`).join("")}</div></div>`).join("");
+  $("timeline").innerHTML = CONFIG.timeline.map((t) => `
+    <div class="item">
+      <div class="when">${esc(t.when)}</div>
+      <h4>${esc(t.title)}</h4>
+      <div class="where">${esc(t.where)}</div>
+      ${t.points.length ? `<ul>${t.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>` : ""}
+    </div>`).join("");
+}
+
+async function cachedFetch(url) {
+  const key = "gh-cache:" + url;
+  try {
+    const hit = JSON.parse(localStorage.getItem(key) || "null");
+    if (hit && Date.now() - hit.t < 30 * 60 * 1000) return hit.data;   // 30 min cache
+  } catch (e) {}
+  const res = await fetch(url, { headers: { Accept: "application/vnd.github+json" } });
+  if (!res.ok) throw new Error(res.status);
+  const data = await res.json();
+  try { localStorage.setItem(key, JSON.stringify({ t: Date.now(), data })); } catch (e) {}
+  return data;
+}
+
+function projectCard(r) {
+  const pinned = CONFIG.pinned.map((p) => p.toLowerCase()).includes(r.name.toLowerCase());
+  const desc = CONFIG.descriptions[r.name] || r.description || "Repository on GitHub.";
+  const lang = r.language ? `<span><span class="dot" style="background:${LANG_COLORS[r.language] || "#36bcf7"}"></span>${esc(r.language)}</span>` : "";
+  const topics = (r.topics || []).slice(0, 4).map((t) => `<span class="tag">${esc(t)}</span>`).join("");
+  return `
+    <article class="project">
+      <img loading="lazy" alt="${esc(r.name)} preview" src="https://opengraph.githubassets.com/1/${esc(CONFIG.github)}/${esc(r.name)}" />
+      <div class="body">
+        ${pinned ? `<div class="pin">★ featured</div>` : ""}
+        <h4>${esc(r.name)}</h4>
+        <p>${esc(desc)}</p>
+        ${topics ? `<div class="tags" style="margin-top:12px">${topics}</div>` : ""}
+        <div class="meta">${lang}<span>⭐ ${r.stargazers_count}</span>
+          <a href="${esc(r.html_url)}" target="_blank" rel="noopener">View code →</a></div>
+      </div>
+    </article>`;
+}
+
+async function renderGitHub() {
+  const u = CONFIG.github;
+  try {
+    const [user, repos] = await Promise.all([
+      cachedFetch(`https://api.github.com/users/${u}`),
+      cachedFetch(`https://api.github.com/users/${u}/repos?per_page=100&sort=pushed&type=owner`),
+    ]);
+    const excl = CONFIG.exclude.map((x) => x.toLowerCase());
+    const list = repos.filter((r) => !r.fork && !excl.includes(r.name.toLowerCase()));
+    const pins = CONFIG.pinned.map((p) => list.find((r) => r.name.toLowerCase() === p.toLowerCase())).filter(Boolean);
+    const ordered = [...pins, ...list.filter((r) => !pins.includes(r))];
+
+    $("s-repos").textContent = list.length;
+    $("s-stars").textContent = list.reduce((n, r) => n + r.stargazers_count, 0);
+    $("s-langs").textContent = new Set(list.map((r) => r.language).filter(Boolean)).size;
+    $("s-followers").textContent = user.followers;
+    $("project-grid").innerHTML = ordered.length ? ordered.map(projectCard).join("") : "<p class='note'>Projects coming soon.</p>";
+  } catch (e) {
+    $("project-grid").innerHTML = "";
+    $("project-note").innerHTML = `Couldn't load projects right now. <a href="https://github.com/${esc(u)}?tab=repositories" target="_blank" rel="noopener">See them on GitHub →</a>`;
+  }
+}
+
+renderStatic();
+renderGitHub();
+</script>
+</body>
+</html>
