@@ -1,25 +1,14 @@
 # SVish1.github.io
 # 🌐 Shamita Nalamutt: Portfolio
 
-**Live site → [svish1.github.io](https://svish1.github.io)**
+# svish1.github.io
 
-Personal portfolio of a Robotics & Automation engineer (M.Sc. student at TU Dortmund), showcasing projects in ROS2, C++, Python and robot learning.
+Source for my personal website: **[svish1.github.io](https://svish1.github.io)**
 
-## ✨ Features
-- Projects load live from the GitHub API, so new repositories appear automatically
-- Live stats: repositories, stars, languages, followers
-- Sections: About, Skills, Projects, Experience & Education, Contact
-- Responsive design that works on mobile and desktop
-- Plain HTML, CSS and JavaScript in a single file, with no frameworks and no build step
+I'm Shamita, a Robotics & Automation master's student at TU Dortmund. Before that I worked as a software engineer on CNC control systems. This site collects my projects in ROS2, C++, Python and robot learning.
 
-## 🛠️ Built with
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-222222?style=flat-square&logo=githubpages&logoColor=white)
+The project section pulls my public repositories from the GitHub API, so new work shows up without me editing the page. It's a single `index.html` with plain HTML, CSS and JavaScript, hosted on GitHub Pages.
 
-## ✏️ Editing
-All content lives in the `CONFIG` object at the bottom of `index.html`: name, about text, skills, pinned projects, timeline and contact links.
+To change the content, edit the `CONFIG` object at the bottom of `index.html`.
 
-## 📫 Contact
-[LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN/) · [GitHub](https://github.com/SVish1)
+**Contact:** [LinkedIn](https://www.linkedin.com/in/YOUR-LINKEDIN/) · [GitHub](https://github.com/SVish1)
